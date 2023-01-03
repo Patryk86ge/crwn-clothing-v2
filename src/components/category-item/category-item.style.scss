@@ -1,6 +1,6 @@
 .category-container {
   min-width: 30%;
-  height: 240px;
+  min-height: 265px;
   flex: 1 1 auto;
   display: flex;
   align-items: center;
@@ -58,11 +58,13 @@
       font-size: 22px;
       color: #4a4a4a;
       text-transform: uppercase;
+      font-family: 'Rubik 80s Fade', cursive;
     }
 
     p {
       font-weight: lighter;
       font-size: 16px;
+      font-family: 'Rubik 80s Fade', cursive;
     }
   }
 }

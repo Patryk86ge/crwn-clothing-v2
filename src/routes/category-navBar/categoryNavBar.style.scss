@@ -1,0 +1,14 @@
+.navigation {
+  background-color: #fff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin:  3px 15px;
+  height: 7vh;
+  .link_Container {
+    font-family: 'Rubik 80s Fade', cursive;
+    font-size: 15px;
+    margin-left: 20px;
+    text-transform: uppercase;
+  }
+}

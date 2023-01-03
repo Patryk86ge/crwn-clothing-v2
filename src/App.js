@@ -1,12 +1,22 @@
 import React from "react";
-import './components/category-manu/categories.styles.scss';
-import CategoryMenu from "./components/category-manu/category-menu";
+import {Routes, Route} from "react-router-dom";
+import Home from "./routes/home/home.component";
+import NavBar from './routes/category-navBar/navBar.components'
+import SignIn from "./routes/sign-in/sign-in.component";
 
+const Shop = () => {
+  return <h1>I am the shop page</h1>
+}
 
 function App() {
-
   return (
-    <CategoryMenu />
+    <Routes>
+      <Route path='/' element={<NavBar />}>
+        <Route index element={<Home />}/>
+        <Route path='shop' element={<Shop />}/>
+        <Route path='sign-in' element={<SignIn />}/>
+      </Route>
+    </Routes>
   );
 }
 
