@@ -12,7 +12,7 @@ const menu = [
   {
     id: 3,
     title: "sign In",
-    path: "/sign-in",
+    path: "/auth",
   },
   {
     id: 4,
@@ -47,7 +47,7 @@ export default menu;
 // </Link>
 // <Link
 //   className={'link_Container'}
-//   to={'/sign-in'}
+//   to={'/authentication'}
 // >
 //   sign In
 // </Link>
