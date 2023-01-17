@@ -1,8 +1,9 @@
-import { useState } from "react";
+import { useState  } from "react";
 import './sign-up-form.style.scss';
 import Button from '../button/button.component'
 import { createAuthUserWithEmailAndPassword,createUserDocumentFromAuth } from '../../utils/firebase/firebase.utile'
-import FormInput from '../form-input/form-input.component'
+import FormInput from '../form-input/form-input.component';
+
 const defaultFormFiled = {
   displayName: '',
   email: '',
@@ -15,6 +16,9 @@ const SignUpFrom = () => {
   const [formFields, setFormField] = useState(defaultFormFiled);
   const {displayName, email, password, confirmPassword} = formFields;
 
+
+
+  console.log("hit");
   const resetForm = () => {
     setFormField(defaultFormFiled);
   }
@@ -22,17 +26,17 @@ const SignUpFrom = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (password !== confirmPassword){
-      alert('password do not match');//modal
+      alert('password do not match');//modal can use
     }
     try {
       const { user } = await createAuthUserWithEmailAndPassword(email,password);
-      await createUserDocumentFromAuth(user,{ displayName })
+      await createUserDocumentFromAuth(user,{ displayName });
       resetForm();
     } catch (error){
       if (error.code === 'auth/email-already-in-use'){
         alert('Cannot create user,email allredy in use') // || modal
       }else {
-        console.log('error reation users',error);
+        console.log('error reaction users',error);
       }
     }
   }
@@ -51,6 +55,8 @@ const SignUpFrom = () => {
           labelName={'Display Name'}
           type={'text'}
           required
+          min={'2'}
+          max={'20'}
           onChange={handleChange}
           name={'displayName'}
           value={displayName}
