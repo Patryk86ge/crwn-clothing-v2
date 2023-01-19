@@ -5,11 +5,12 @@
 }
 body {
   margin: 0;
+  padding: 20px 40px;
   font-family: 'Open Sans','Rubik 80s Fade',
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  overflow: hidden;
+  //overflow: hidden;
 }
 
 code {

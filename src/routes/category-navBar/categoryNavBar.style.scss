@@ -3,13 +3,18 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin:  3px 15px;
+  margin: 20px 0;
   height: 7vh;
   .link_Container {
     font-family: 'Rubik 80s Fade', cursive;
-    font-size: 15px;
+    font-size: 18px;
     margin-left: 20px;
     text-transform: uppercase;
     cursor: pointer;
+  }
+  .linksNav {
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
 }
