@@ -39,6 +39,20 @@ const NavBar = () => {
           >
             contact
           </Link>
+
+
+          <Link
+            className={'link_Container'}
+            to={'/basket'}
+          >
+            basket
+          </Link>
+          <Link
+            className={'link_Container'}
+            to={'/shop'}
+          >
+            shop
+          </Link>
           {
             currentUser ? (
                 <span
@@ -57,19 +71,6 @@ const NavBar = () => {
                   sign In
                 </Link>)
           }
-
-          <Link
-            className={'link_Container'}
-            to={'/basket'}
-          >
-            basket
-          </Link>
-          <Link
-            className={'link_Container'}
-            to={'/shop'}
-          >
-            shop
-          </Link>
           <CartIcon/>
         </div>
         {

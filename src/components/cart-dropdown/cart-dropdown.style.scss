@@ -10,7 +10,8 @@
   top: 90px;
   right: 40px;
   z-index: 5;
-
+  overflow-y: scroll;
+  cursor: pointer;
   .empty-message {
     font-size: 18px;
     margin: 50px auto;
