@@ -1,6 +1,6 @@
 import React, {useContext } from 'react';
 
-import {Link, Outlet} from "react-router-dom";
+import { Outlet} from "react-router-dom";
 import {ReactComponent as LogoCrwn} from '../../assets/crown.svg'
 
 import { UserContext } from '../../contexts/user.context';
@@ -10,73 +10,64 @@ import { signOutUser } from '../../utils/firebase/firebase.utile'
 import CartIcon from "../../components/cart-icon/cart-icon.component";
 import CartDropdown from "../../components/cart-dropdown/cart-dropdown.component";
 
-import './categoryNavBar.style.scss'
+import { NavigationContainer,LinkContainer, LinkNav ,LogoContainer } from  './categoryNavBar.style.jsx'
 
 const NavBar = () => {
-
   const {currentUser} = useContext(UserContext);
   const { isCartOpen } = useContext(CartContext);
 
   return (
     <>
-      <nav className={'navigation'}>
-        <Link
-          className={'logo_container'}
+      <NavigationContainer>
+        <LogoContainer
           to={'/'}
         >
           <LogoCrwn/>
-        </Link>
-        <div className={'linksNav'}>
-          <Link
-            className={'link_Container'}
-            to={'/hats'}
-          >
-            hats
-          </Link>
-          <Link
-            className={'link_Container'}
-            to={'/contact'}
-          >
-            contact
-          </Link>
-
-
-          <Link
-            className={'link_Container'}
-            to={'/basket'}
-          >
-            basket
-          </Link>
-          <Link
-            className={'link_Container'}
+        </LogoContainer>
+        <LinkContainer>
+          {/*<LinkNav*/}
+          {/*  to={'/hats'}*/}
+          {/*>*/}
+          {/*  hats*/}
+          {/*</LinkNav>*/}
+          {/*<LinkNav*/}
+          {/*  to={'/contact'}*/}
+          {/*>*/}
+          {/*  contact*/}
+          {/*</LinkNav>*/}
+          {/*<LinkNav*/}
+          {/*  to={'/basket'}*/}
+          {/*>*/}
+          {/*  basket*/}
+          {/*</LinkNav>*/}
+          <LinkNav
             to={'/shop'}
           >
             shop
-          </Link>
+          </LinkNav>
           {
             currentUser ? (
-                <span
+                <LinkNav as={'span'}
                   onClick={signOutUser}
-                  className={'link_Container'}
+                  className={'linksNav'}
                 >
                 Sign Out
-              </span>
+              </LinkNav>
               )
               :
               (
-                <Link
-                  className={'link_Container'}
+                <LinkNav
                   to={'/auth'}
                 >
                   sign In
-                </Link>)
+                </LinkNav>)
           }
           <CartIcon/>
-        </div>
+        </LinkContainer>
         {
           isCartOpen &&  <CartDropdown />
         }
-      </nav>
+      </NavigationContainer>
       <Outlet/>
     </>
   );

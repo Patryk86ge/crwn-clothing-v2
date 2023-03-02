@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/../../Js cwiczenia/-50-Projects-In-50-Days---HTML-CSS-JavaScript/.idea/50-days.iml" filepath="$PROJECT_DIR$/../../Js cwiczenia/-50-Projects-In-50-Days---HTML-CSS-JavaScript/.idea/50-days.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/crwn-clothing-v2.iml" filepath="$PROJECT_DIR$/.idea/crwn-clothing-v2.iml" />
     </modules>
   </component>

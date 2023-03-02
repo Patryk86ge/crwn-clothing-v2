@@ -1,20 +1,21 @@
 import React from 'react';
 import categories from "./categories.json";
-import CategoryItemComponent from "../category-item/category-item.component";
-import './categories.styles.scss'
+import DirectoryItemComponent from "../directory-item/directory-item.component";
+
+import {CategoriesContainer} from './categories.styles'
 
 const CategoryMenu = () => {
   return (
-    <div className='categories-container'>
+    <CategoriesContainer>
       {
         categories.map(( category ) => (
-          <CategoryItemComponent
-            category={category}
+          <DirectoryItemComponent
             key={category.id}
+            category={category}
           />
         ))
       }
-    </div>
+    </CategoriesContainer>
   );
 };
 
