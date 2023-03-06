@@ -1,4 +1,3 @@
-import React, {useContext} from 'react';
 import ProductCart from "../product-cart/product-cart.component";
 import {CategoryPreviewContainer ,Preview,LinkTitle} from './categoryPreview.style'
 
