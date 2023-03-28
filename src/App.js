@@ -1,12 +1,30 @@
-import React from "react";
-import {Routes, Route} from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
+import { useEffect} from "react";
+import { useDispatch } from 'react-redux';
+
 import Home from "./routes/home/home.component";
 import NavBar from './routes/category-navBar/navBar.components'
 import Authentication from "./routes/authentication/authentication.component";
 import Shop from "./routes/shop/shop.component";
 import Checkout from "./routes/checkout/checkout.component";
+import {
+  onAuthStateChangedListener,
+  createUserDocumentFromAuth, getCategoriesAndDocuments,
+} from './utils/firebase/firebase.utile';
+import { setCurrentUser } from "./store/user/user.action";
 
 function App() {
+  const dispatch = useDispatch();
+  useEffect(() => {
+    const unsubscribe  = onAuthStateChangedListener((user) => {
+      if (user) {
+        createUserDocumentFromAuth(user)
+      }
+      dispatch(setCurrentUser(user));
+    });
+    return unsubscribe;
+  }, [dispatch]);
+
   return (
     <Routes>
       <Route path='/' element={<NavBar />}>

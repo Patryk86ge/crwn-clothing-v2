@@ -1,0 +1,4 @@
+const USER_ACTION_TYPES = {
+  SET_CATEGORIES: 'category/SET_CATEGORIES'
+}
+export default USER_ACTION_TYPES
