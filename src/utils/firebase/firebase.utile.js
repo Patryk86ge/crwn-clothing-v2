@@ -52,7 +52,6 @@ export const addCollectionAndDocuments = async (collectionKey, objectsToAdd, fie
     batch.set(docRef, obj)
   })
   await batch.commit();
-  console.log("done");
 }
 
 export const getCategoriesAndDocuments = async () => {
@@ -69,8 +68,7 @@ export const createUserDocumentFromAuth = async (
   additionalInformation = {}
 ) => {
   if (!userAuth) return;
-  const userDocRef = doc(db, 'users', userAuth.uid);
-  console.log(userDocRef);
+  const userDocRef = doc(db, 'users', userAuth.uid)
 
   const userSnapShot = await getDoc(userDocRef)
 
