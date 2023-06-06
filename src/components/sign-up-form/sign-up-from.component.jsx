@@ -1,8 +1,9 @@
 import { useState  } from "react";
+import { useDispatch } from "react-redux";
 import Button from '../button/button.component'
-import { createAuthUserWithEmailAndPassword,createUserDocumentFromAuth } from '../../utils/firebase/firebase.utile'
 import FormInput from '../form-input/form-input.component';
 import {SignUpContainer} from './sign-up-form.style';
+import {signUpStart} from "../../store/user/user.action";
 const defaultFormFiled = {
   displayName: '',
   email: '',
@@ -12,6 +13,7 @@ const defaultFormFiled = {
 
 
 const SignUpFrom = () => {
+  const dispatch = useDispatch()
   const [formFields, setFormField] = useState(defaultFormFiled);
   const {displayName, email, password, confirmPassword} = formFields;
   const resetForm = () => {
@@ -24,12 +26,11 @@ const SignUpFrom = () => {
       alert('password do not match');//modal can use
     }
     try {
-      const { user } = await createAuthUserWithEmailAndPassword(email,password);
-      await createUserDocumentFromAuth(user,{ displayName });
+      dispatch(signUpStart(email,password,displayName))
       resetForm();
     } catch (error){
       if (error.code === 'auth/email-already-in-use'){
-        alert('Cannot create user,email allredy in use') // || modal
+        alert('Cannot create user,email already in use') // || modal
       }else {
         console.log('error reaction users',error);
       }
